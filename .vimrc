@@ -64,6 +64,7 @@ let g:netrw_liststyle = 3
 call plug#begin()
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'kristijanhusak/vim-dadbod-completion'
