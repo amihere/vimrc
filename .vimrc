@@ -161,8 +161,6 @@ nmap <leader>ts :call SmallTerm()<cr>
 " Plugins
 call plug#begin()
 Plug 'mbbill/undotree'
-Plug 'stevearc/oil.nvim'
-Plug 'kdheepak/lazygit.nvim'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
