@@ -79,7 +79,7 @@ let mapleader = " "
 nmap <leader>ff :FZF<CR>
 
 " delete single character without copying into register
-" nmap x "_x<cr>
+nnoremap x "_x
 
 " window management
 nmap <leader>\| <C-w>v " split window vertically
@@ -90,22 +90,22 @@ nmap <leader>w <C-w>w " toggle between open windows
 nmap <leader>zz :silent LazyGit
 
 " new wave
-nmap <leader>fv :Oil
+nmap <leader>fv :Ex<cr>
 
 " moving lines up and down
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
 
 " move line below up, and keep cursor stationary
-" nmap J mzJ`z
+nnoremap J mzJ`z
 
 " keep cursor in middle while going up/down
-nmap <C-d> <C-d>zz
-nmap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " keep cursor in middle when searching
-nmap n nzzzv
-nmap N Nzzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " keeps original copied text when pasting over another selected text
 nmap <leader>p :norm "_dP<cr>
