@@ -3,6 +3,7 @@ set nocompatible
 syntax on
 filetype plugin on
 
+" remove up and down
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -61,11 +62,20 @@ set listchars=tab:»\ ,trail:·,nbsp:␣
 
 let g:netrw_liststyle = 3
 
+set foldlevelstart=1
+set foldnestmax=2
+set fml=3
+set foldmethod=expr
+set foldexpr="nvim_treesitter#foldexpr()"
+
+" color scheme
+colorscheme rosepine
+
 call plug#begin()
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-endwise'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'kristijanhusak/vim-dadbod-completion'
 Plug 'christoomey/vim-tmux-navigator'
