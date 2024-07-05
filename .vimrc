@@ -10,7 +10,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "search all paths
-set path+=**
+" set path+=**
 
 "display matching files after tab
 set wildmenu
@@ -45,7 +45,7 @@ set signcolumn=yes
 set backspace=indent,eol,start
 
 "clipboard
-"set clipboard+=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 "split windows
 set splitright
@@ -76,7 +76,12 @@ colorscheme rosepine
 let mapleader = " "
 " set timeoutlen 500
 
-nmap <leader>ff :FZF<CR>
+nmap <leader>ff :Files!<CR>
+nmap <leader>fg :GFiles!<CR>
+nmap <leader>fb :Buffers<CR>
+nmap <leader>fm :Maps<CR>
+nmap <leader>fhs :History/<CR>
+nmap <leader>fhc :History:<CR>
 
 " delete single character without copying into register
 nnoremap x "_x
@@ -160,6 +165,7 @@ nmap <leader>ts :call SmallTerm()<cr>
 
 " Plugins
 call plug#begin()
+Plug 'vim-scripts/YankRing.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-commentary'
