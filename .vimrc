@@ -155,6 +155,12 @@ endfunction
 nmap <leader>tt :call LargeTerm()<cr>
 nmap <leader>ts :call SmallTerm()<cr>
 
+" reselect pasted text
+nnoremap gp `[v`]
+
+" Clean opened buffers
+command! Bd :up | %bd | e#
+
 " Lsp specific keybinds
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
