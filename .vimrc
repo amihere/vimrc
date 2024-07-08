@@ -92,7 +92,6 @@ nnoremap x "_x
 
 " window management
 nmap <leader>\| <C-w>v " split window vertically
-
 nmap <leader>- <C-w>s " split window horizontally
 nmap <leader>q <C-w>q " close current split window
 nmap <leader>w <C-w>w " toggle between open windows
@@ -109,23 +108,16 @@ vmap K :m '<-2<CR>gv=gv
 nnoremap J mzJ`z
 
 " keep cursor in middle while going up/down
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
+" nnoremap <C-d> <C-d>zz
+" nnoremap <C-u> <C-u>zz
 
 " keep cursor in middle when searching
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" keeps original copied text when pasting over another selected text
-nmap <leader>p :norm "_dP<cr>
-
 " will copy text into both copy buffer and system clipboard
 nmap Y y$
-nmap <leader>y "+y<cr>
-vmap <leader>y "+y<cr>
-nmap <leader>Y "+Y<cr>
-nmap <leader>d "_d<cr>
-vmap <leader>d "_d<cr>
+nmap <leader>y :YRShow<cr>
 
 nmap Q <nop>
 
@@ -214,12 +206,16 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " close completion using auto command
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" highlight
+
 " "---------------------
 " " Plugin Keybinds
 " "---------------------
 
 " Plugins
 call plug#begin()
+Plug 'azabiong/vim-highlighter'
+Plug 'amihere/smooth'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
