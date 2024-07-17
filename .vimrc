@@ -192,25 +192,7 @@ augroup lsp_install
 augroup END
 
 " Autocomplete
-let g:asyncomplete_auto_popup = 0
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" close completion using auto command
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
 
 " highlight
 
@@ -224,8 +206,7 @@ Plug 'azabiong/vim-highlighter'
 Plug 'amihere/smooth'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ervandew/supertab'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dadbod'
