@@ -189,8 +189,21 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-" Autocomplete
-autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
+" remove default sql mappings
+let g:omni_sql_default_compl_type = 'syntax'
+let omni_sql_no_default_maps = 1
+
+" add sql completion to dadbod completion
+augroup kyotosql
+  " Remove all vimrc autocommands
+  autocmd!
+  " setup dadbod completion
+  autocmd FileType sql 
+      \ setlocal omnifunc=vim_dadbod_completion#omni |
+      \ if &omnifunc != '' |
+      \   call SuperTabChain(&omnifunc, "<C-O>:call sqlcomplete#Map('syntax')<CR><C-X><C-O>") |
+      \ endif |
+augroup END
 
 " highlight
 
